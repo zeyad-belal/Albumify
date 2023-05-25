@@ -1,0 +1,10 @@
+<main>
+<label for="">name :    <input  type="text" [(ngModel)]="name">     </label>
+<label for="">email :   <input  type="text" [(ngModel)]="email">     </label>
+<label for="">username :<input  type="text" [(ngModel)]="username"> </label>
+<label for="">city :    <input  type="text" [(ngModel)]="city">     </label>
+<label for="">phone :   <input  type="text" [(ngModel)]="phone">     </label>
+<input type="button" value="add" (click)="addNewStudent(name ,email ,username ,city ,phone )">
+</main>
+<div *ngIf="addSucc == true">Student Added Successfully !</div>
+
