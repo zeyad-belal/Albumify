@@ -1,0 +1,12 @@
+<main *ngIf="student">
+
+  <label for="">name:     <input type="text"  #name     value={{student.name}}>     </label>
+  <label for="">email:    <input type="text"  #email    value={{student.email}}>    </label>
+  <label for="">username: <input type="text"  #username value={{student.username}}> </label>
+  <label for="">city:     <input type="text"  #city     value={{student.city}} >    </label>
+  <label for="">phone:    <input type="text"  #phone    value={{student.phone}} >   </label>
+  <input type="button" value="update" (click)="updateStudent(name.value, email.value, username.value ,city.value , phone.value )">
+</main>
+
+<div *ngIf="updateSucc == true">Student Updated Successfully !</div>
+
