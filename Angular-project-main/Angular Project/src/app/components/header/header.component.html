@@ -1,0 +1,10 @@
+<div class="d-lg-flex justify-content-center justify-content-lg-evenly align-items-center">
+  <div class="col col-lg-7">
+    <a [routerLinkActiveOptions]='{exact:true}' class="btn btn-outline-light" routerLinkActive="active" routerLink="/users">Home</a>
+  </div>
+  <div class="d-flex justify-content-between gap-lg-3 col col-lg-4 pt-3 pb-3">
+    <a routerLink="/login" (click)="logout()" class="btn btn-light text-decoration-none">Sign In</a>
+    <a routerLink="" (click)="newLog()" class="btn btn-light text-decoration-none">Sign Up</a>
+    <button (click)="logout()" class="btn btn-danger">log out</button>
+  </div>
+</div>

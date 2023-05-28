@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <section class="p-2 col-lg-7 m-lg-auto">
+        <div id="card">
+          <div  id="card2">
+            <form class="form text-center p-3" id="form" [formGroup]="regValid">
+              <div class="form-control d-flex align-items-center mb-2 mt-2 styling">
+                <i class="bi bi-person-fill input-icon"></i>
+                <input type="text" placeholder="Name" class="input-field" id="name" formControlName="name" [ngClass]="regValid.controls['name'].valid?'accept':'notaccept'">
+              </div>
+              <div class="form-control d-flex align-items-center mb-2 styling">
+                <i class="bi bi-at input-icon"></i>
+                <input type="email" placeholder="Email" class="input-field" formControlName="email" [ngClass]="regValid.controls['email'].valid?'accept':'notaccept'">
+              </div>
+
+              <div class="form-control d-flex align-items-center mb-2 styling">
+                <i class="bi bi-phone-fill input-icon"></i>
+                <input #phone type="text" placeholder="Phone" class="input-field" formControlName="phone" [ngClass]="regValid.controls['phone'].valid?'accept':'notaccept'">
+              </div>
+              <article class="d-flex gap-2 mb-2">
+                <div class="form-control styling">
+                  <i class="bi bi-house-fill input-icon"></i>
+                  <input type="text" placeholder="Street" class="input-field"  formControlName="street" [ngClass]="regValid.controls['street'].valid?'accept':'notaccept'">
+                </div>
+                <div class="form-control styling">
+                  <i class="bi bi-house-fill input-icon"></i>
+                  <input type="text" placeholder="City" class="input-field" formControlName="city" [ngClass]="regValid.controls['city'].valid?'accept':'notaccept'">
+
+                </div>
+              </article>
+              <div>
+                <button type="button" (click)="submitValues()" class="btn btn-lg w-50 rounded-5 mt-5 mb-5" id="button1" data-bs-dismiss="modal">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
