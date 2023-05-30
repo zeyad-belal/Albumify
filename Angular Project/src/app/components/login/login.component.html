@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <section class="p-2 col-md-6 col-lg-4 m-auto">
+        <div id="card">
+          <div  id="card2">
+            <form class="form text-center p-4" id="form">
+              <div class="form-control d-flex align-items-center mb-5 styling">
+                <i class="bi bi-at input-icon"></i>
+                <input type="email" placeholder="Email" class="input-field" id="email" [(ngModel)]="email" name="email"  required>
+              </div>
+              <div *ngIf="emailIsWrong" class="text-danger mb-3">email is incorrect please <a (click)="register()" routerLink="" class="text-decoration-none text-light">register</a></div>
+              <div class="form-control d-flex align-items-center mb-5 styling">
+                <i class="bi bi-at input-icon"></i>
+                <input type="text" placeholder="password" class="input-field" id="password" [(ngModel)]="password" name="password"  required>
+              </div>
+              <div>
+                <input (click)="onSubmit()"  type="button" class="btn w-50 rounded-5" data-bs-dismiss="modal" id="button1" value="Login" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

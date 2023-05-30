@@ -1,0 +1,134 @@
+<div class="row">
+  <div class="col">
+    <header class="col bg-success p-2 ">
+      <app-header></app-header>
+    </header>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <header class="d-flex justify-content-between mt-3 mb-5 align-items-center">
+        <h3 class="text-light d-flex justify-content-between"><i class="bi bi-person-circle col-3"></i>Students</h3>
+        <button (click)="adding()" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Add Student
+        </button>
+      </header>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content bg-black">
+          <div class="modal-header">
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <section class="p-2">
+              <div id="card">
+                <div  id="card2">
+                  <form class="form text-center p-3" id="form" [formGroup]="regValid" >
+                    <!-- updating user modal  -->
+                    <div *ngIf="updateClicked == true">
+
+                        <div class="form-control d-flex align-items-center mb-2 mt-2 styling">
+                          <i class="bi bi-person-fill input-icon"></i>
+                          <input type="text" value={{stUpdated.name}} placeholder="Name" class="input-field" id="name" formControlName="name" [ngClass]="regValid.controls['name'].valid?'accept':'notaccept'">
+                        </div>
+                      <div class="form-control d-flex align-items-center mb-2 styling">
+                        <i class="bi bi-at input-icon"></i>
+                        <input type="email" value={{stUpdated.email}} placeholder="Email" class="input-field" formControlName="email" [ngClass]="regValid.controls['email'].valid?'accept':'notaccept'">
+                      </div>
+                      
+                      <div class="form-control d-flex align-items-center mb-2 styling">
+                        <i class="bi bi-phone-fill input-icon"></i>
+                        <input #phone type="text" value={{stUpdated.phone}}  placeholder="Phone" class="input-field" formControlName="phone" [ngClass]="regValid.controls['phone'].valid?'accept':'notaccept'">
+                      </div>
+                      <article class="d-flex gap-2 mb-2">
+                        <div class="form-control styling">
+                          <i class="bi bi-house-fill input-icon"></i>
+                          <input type="text" value={{stUpdated.street}} placeholder="Street" class="input-field"  formControlName="street" [ngClass]="regValid.controls['street'].valid?'accept':'notaccept'">
+                        </div>
+                        <div class="form-control styling">
+                          <i class="bi bi-house-fill input-icon"></i>
+                          <input type="text" value={{stUpdated.city}} placeholder="City" class="input-field" formControlName="city" [ngClass]="regValid.controls['city'].valid?'accept':'notaccept'">
+                        </div>
+                      </article>                  
+                      <button  type="button" (click)="updateValues()" class="btn w-50 rounded-5 mt-3 mb-3" id="button1" data-bs-dismiss="modal">Update</button>
+                      </div>
+
+                    <!-- adding user modal  -->
+                    <ng-container *ngIf="addClicked == true">
+                        <div class="form-control d-flex align-items-center mb-2 mt-2 styling">
+                          <i class="bi bi-person-fill input-icon"></i>
+                          <input type="text" placeholder="Name" class="input-field" id="name" formControlName="name" [ngClass]="regValid.controls['name'].valid?'accept':'notaccept'">
+                        </div>
+                      <div class="form-control d-flex align-items-center mb-2 styling">
+                        <i class="bi bi-at input-icon"></i>
+                        <input type="email"  placeholder="Email" class="input-field" formControlName="email" [ngClass]="regValid.controls['email'].valid?'accept':'notaccept'">
+                      </div>
+                      
+                      <div class="form-control d-flex align-items-center mb-2 styling">
+                        <i class="bi bi-phone-fill input-icon"></i>
+                        <input #phone type="text"  placeholder="Phone" class="input-field" formControlName="phone" [ngClass]="regValid.controls['phone'].valid?'accept':'notaccept'">
+                      </div>
+                      <article class="d-flex gap-2 mb-2">
+                        <div class="form-control styling">
+                          <i class="bi bi-house-fill input-icon"></i>
+                          <input type="text"  placeholder="Street" class="input-field"  formControlName="street" [ngClass]="regValid.controls['street'].valid?'accept':'notaccept'">
+                        </div>
+                        <div class="form-control styling">
+                          <i class="bi bi-house-fill input-icon"></i>
+                          <input type="text" placeholder="City" class="input-field" formControlName="city" [ngClass]="regValid.controls['city'].valid?'accept':'notaccept'">
+                          
+                        </div>
+                      </article>          
+                        <button type="button" (click)="addValues()" class="btn w-50 rounded-5 mt-3 mb-3 mx-auto" id="button1" data-bs-dismiss="modal">Save</button>
+                    </ng-container>
+                  </form>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="row table-responsive">
+    <div class="col-4 col-lg-12">
+      <table class="table table-dark table-stripe">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Address</th>
+            <th *ngIf="admin == 'true'" scope="col">
+              Update
+            </th>
+            <th *ngIf="admin == 'true'"  scope="col">
+              Delete
+            </th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let s of users">
+            <th><a routerLink="/users/{{s.id}}" class="text-decoration-none text-success">{{s.name}}</a></th>
+            <td>{{s.email}}</td>
+            <td>{{s.phone}}</td>
+            <td>{{s.street}} {{s.city}}</td>
+            <td *ngIf="admin == 'true'">
+              <button (click)="updating(s.id)" data-bs-toggle="modal" data-bs-target="#exampleModal" class="text-decoration-none text-primary btn btn-dark"><i class="bi bi-pencil-square fs-4"></i></button>            
+            </td>
+            <td *ngIf="admin == 'true'">
+              <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal" (click)="deleteUser(s.id)"><i class="bi bi-person-x-fill fs-4"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
