@@ -1,0 +1,75 @@
+<div class="row">
+  <div class="col">
+    <header class="col bg-success p-2 ">
+      <app-header></app-header>
+    </header>
+  </div>
+</div>
+
+<div class="container">
+  <header class="alert alert-light mb-4 mt-4 d-lg-flex justify-content-center gap-lg-4 align-items-center" *ngIf="student ;else falseBlock">
+    <h2 class="text-success">{{student.name}} |</h2>
+    <div class="d-lg-flex justify-content-lg-center align-items-center gap-lg-3 text-black pt-lg-3">
+      <p class=" d-flex gap-2 align-items-center"><i class="bi bi-envelope-at-fill"></i><span>{{student.email}}</span> </p>
+      <p class=" d-flex gap-2 align-items-center"><i class="bi bi-phone-fill"></i><span>{{student.phone}}</span></p>
+      <p class=" d-flex gap-2 align-items-center"><i class="bi bi-house-door-fill"></i><span>{{student.street}}-{{student.city}}</span> </p>
+    </div>
+  </header>
+  <div class="row">
+    <div class="col d-lg-flex flex-wrap justify-content-center gap-4">
+      <article class="card col-lg-3 rounded-2 mb-3" routerLink="./photos">
+        <img src="./assets/frank-mckenna-4V8JxijgZ_c-unsplash.jpg" class="card-img-top img-fluid" alt="img-1">
+        <div class="card-body">
+          <h3 class="card-title text-center">12</h3>
+          <p class="card-text text-center text-success">PHOTOS</p>
+        </div>
+      </article>
+      <article class="card col-lg-3 rounded-2 mb-3" routerLink="./photos">
+        <img src="./assets/tim-marshall-K2u71wv2eI4-unsplash.jpg" class="card-img-top img-fluid" alt="img-2">
+        <div class="card-body">
+          <h3 class="card-title text-center">12</h3>
+          <p class="card-text text-center text-success">PHOTOS</p>
+        </div>
+      </article>
+      <article class="card col-lg-3 rounded-2 mb-3" routerLink="./photos">
+        <img src="./assets/tim-promwanna-1gW7PlVTCOI-unsplash.jpg" class="card-img-top img-fluid" alt="img-3">
+        <div class="card-body">
+          <h3 class="card-title text-center">12</h3>
+          <p class="card-text text-center text-success">PHOTOS</p>
+        </div>
+      </article>
+      <article class="card col-lg-3 rounded-2 mb-3" routerLink="./photos">
+        <img src="./assets/person4.jpg" class="card-img-top img-fluid" alt="img-3">
+        <div class="card-body">
+          <h3 class="card-title text-center">12</h3>
+          <p class="card-text text-center text-success">PHOTOS</p>
+        </div>
+      </article>
+      <article class="card col-lg-3 rounded-2 mb-3" routerLink="./photos">
+        <img src="./assets/nature2.jpg" class="card-img-top img-fluid" alt="img-3">
+        <div class="card-body">
+          <h3 class="card-title text-center">12</h3>
+          <p class="card-text text-center text-success">PHOTOS</p>
+        </div>
+      </article>
+      <article class="card col-lg-3 rounded-2 mb-3" routerLink="./photos">
+        <img src="./assets/beach1.jpg" class="card-img-top img-fluid" alt="img-3">
+        <div class="card-body">
+          <h3 class="card-title text-center">12</h3>
+          <p class="card-text text-center text-success">PHOTOS</p>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+  <ng-template #falseBlock>
+    <h1 class="alert alert-danger">Loading....</h1>
+  </ng-template>
+
+
+
+
+</div>
+
+
