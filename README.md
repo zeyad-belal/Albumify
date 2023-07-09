@@ -1,7 +1,3 @@
-# to login ad admin email: admin@gmail.com , password : admin123
-# to login ad admin email: user@gmail.com , password : user123
-
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.7.
 
 ## Development server
